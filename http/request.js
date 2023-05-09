@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ElMessage } from "element-plus";
+import { Message } from "element-ui";
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_URL,
@@ -26,7 +26,7 @@ service.interceptors.response.use(
   (response) => {
     const res = response.data;
     if (res.code !== 200) {
-      ElMessage.error(res.message || "Error");
+      Message.error(res.message || "Error");
       return Promise.reject(new Error(res.message || "Error"));
     } else {
       return res;
@@ -34,7 +34,7 @@ service.interceptors.response.use(
   },
   (error) => {
     console.log("err" + error);
-    ElMessage.error(error.message);
+    Message.error(error.message);
     return Promise.reject(error);
   }
 );
