@@ -110,7 +110,7 @@ export function judgeType(data) {
 }
 
 /** 格式化时间*/
-export function dateFormater(formater = '1970-1-1 12:12:12', t) {
+export function dateFormater(formater = 'YYYY-MM-DD HH:mm:ss', t) {
   let date = t ? new Date(t) : new Date(),
     Y = date.getFullYear() + "",
     M = date.getMonth() + 1,
